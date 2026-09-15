@@ -1,6 +1,12 @@
 # Generated files
 target/
 
+# IDE files
+bin/
+.settings/
+.classpath
+.project
+
 # Compiled class file
 *.class
 
