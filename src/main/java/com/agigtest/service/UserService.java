@@ -20,15 +20,15 @@ public class UserService {
     public boolean register(String username, String email, String firstName, String lastName, String plainPassword) throws RuntimeException {
         String passwordHash = BCrypt.hashpw(plainPassword, BCrypt.gensalt(12));
 
+        if (plainPassword.length() > 72) {
+            throw new IllegalArgumentException("Password must be less than 72 characters.");
+        }
         if (userDAO.existsByUsername(username)) {
             throw new DuplicateUsernameException("The username '" + username + "' is already in use.");
         }
         if (userDAO.existsByEmail(email)) {
             throw new DuplicateEmailException("The email '" + email + "' is already in use.");
-        }
-        if (plainPassword.length() > 72) {
-            throw new IllegalArgumentException("Password must be less than 72 characters.");
-        }
+        }        
 
         return userDAO.register(
             username, 
