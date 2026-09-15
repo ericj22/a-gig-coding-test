@@ -7,29 +7,11 @@
     <title>Login</title>
     <style>
         body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 650px; margin: auto; }
-        code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 4px; }
-        button { padding: 0.5rem 1rem; cursor: pointer; }
         pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; }
     </style>
 </head>
 <body>
     <h1>Pure Java Web App</h1>
     <p>Served directly by Apache Tomcat without third-party frameworks.</p>
-
-    <button onclick="testApi()">Call Servlet GET API</button>
-    <pre id="output">API response will appear here...</pre>
-
-    <script>
-        async function testApi() {
-            const out = document.getElementById('output');
-            try {
-                const res = await fetch('api/hello?name=Dev');
-                const data = await res.json();
-                out.textContent = JSON.stringify(data, null, 2);
-            } catch (err) {
-                out.textContent = 'Error: ' + err.message;
-            }
-        }
-    </script>
 </body>
 </html>
