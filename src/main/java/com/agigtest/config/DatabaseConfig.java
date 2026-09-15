@@ -12,7 +12,7 @@ public class DatabaseConfig {
         if (dataSource == null) {
             HikariConfig config = new HikariConfig();
 
-            String dbUrl = getEnvOrDefault("DB_URL", "jdbc:mysql://localhost:3306agig_test?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC");
+            String dbUrl = getEnvOrDefault("DB_URL", "jdbc:mysql://localhost:3306/agig_test?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC");
             String dbUser = getEnvOrDefault("DB_USER", "appuser");
             String dbPass = getEnvOrDefault("DB_PASS", "mypassword123!");
 

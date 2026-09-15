@@ -11,7 +11,11 @@ public class AppLifecycleListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        DatabaseConfig.getDataSource();
+        try {
+            DatabaseConfig.getDataSource();
+        } catch (Exception e) {
+            sce.getServletContext().log("Failed to initialize database connection pool on startup", e);
+        }
     }
 
     @Override
