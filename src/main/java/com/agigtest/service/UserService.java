@@ -26,6 +26,9 @@ public class UserService {
         if (userDAO.existsByEmail(email)) {
             throw new DuplicateEmailException("The email '" + email + "' is already in use.");
         }
+        if (plainPassword.length() < 10 || plainPassword.length() > 72) {
+            throw new IllegalArgumentException("Password must be between 10 and 72 characters.");
+        }
 
         return userDAO.register(
             username, 
